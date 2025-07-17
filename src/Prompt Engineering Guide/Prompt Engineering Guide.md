@@ -180,7 +180,94 @@ neutral
 
 ## コード生成
 
+> /*ユーザーに名前を聞いて、「こんにちは」と言うJavaScriptソース*/
+
+```markdown
+/\* This is the Javascript Source Code for the user to be able to be greeted with "Hello" after they input their name.\*/
+
+\`\`\`javascript
+// Ask the user for their name
+let userName = prompt("お名前は何ですか？");
+
+// Check if a name was entered
+if (userName) {
+  // If a name was entered, display a greeting
+  alert("こんにちは、" + userName + "さん！");
+} else {
+  // If no name was entered, display a generic greeting
+  alert("こんにちは！");
+}
+\`\`\`
+
+```
+
+<br><br><br>
+
+> テーブル名 departments、カラム=[DepartmentId、DepartmentName]
+>
+> テーブル名 students、カラム=[DepartmentId、StudentId、StudentName]
+>
+> コンピュータサイエンス学科のすべての学生のためのMySQLクエリを作成してください。
+
+```markdown
+コンピュータサイエンス学科の全学生を検索するMySQLクエリは以下の通りです。
+
+このクエリは、`departments`テーブルと`students`テーブルを`DepartmentId`カラムで結合し、`DepartmentName`が「Computer Science」であるレコードを絞り込んで、該当する学生の名前を取得します。
+
+\`\`\`sql
+SELECT s.StudentName
+FROM students AS s
+JOIN departments AS d ON s.DepartmentId = d.DepartmentId
+WHERE d.DepartmentName = 'Computer Science';
+\`\`\`
+
+### クエリの解説
+
+  * **`SELECT s.StudentName`**: `students`テーブル（エイリアス`s`）から`StudentName`カラムを選択します。
+  * **`FROM students AS s`**: `students`テーブルをクエリのベースとし、`s`というエイリアス（別名）を付けます。
+  * **`JOIN departments AS d ON s.DepartmentId = d.DepartmentId`**: `students`テーブル（`s`）と`departments`テーブル（エイリアス`d`）を結合します。結合の条件は、両テーブルの`DepartmentId`カラムが一致することです。
+  * **`WHERE d.DepartmentName = 'Computer Science'`**: 結合された結果から、`departments`テーブルの`DepartmentName`が「Computer Science」である行のみを抽出します。
+```
+
 ## 推論
+
+> このグループの奇数の数値を合計すると偶数になります: 15, 32, 5, 13, 82, 7, 1。
+>
+>
+>
+> 問題をステップごとに解決してください。まず、奇数の数値を特定し、それらを合計して結果が奇数か偶数かを示してください。
+
+```markdown
+指定されたグループの奇数を特定し、合計して結果が奇数か偶数かを確認しましょう。
+
+**ステップ1：奇数の数値を特定する**
+
+グループ内の数値は次のとおりです: 15, 32, 5, 13, 82, 7, 1。
+奇数とは、2で割り切れない整数です。
+
+* 15：奇数
+* 32：偶数
+* 5：奇数
+* 13：奇数
+* 82：偶数
+* 7：奇数
+* 1：奇数
+
+したがって、奇数の数値は 15, 5, 13, 7, 1 です。
+
+**ステップ2：奇数の数値を合計する**
+
+特定された奇数を合計します。
+$15 + 5 + 13 + 7 + 1 = 41$
+
+**ステップ3：結果が奇数か偶数かを示す**
+
+合計は 41 です。41 は 2 で割り切れないため、奇数です。
+
+**結論：**
+
+このグループの奇数の数値を合計すると 41 になり、これは奇数です。したがって、元のステートメント「このグループの奇数の数値を合計すると偶数になります」は間違っています。
+```
 
 ---
 
